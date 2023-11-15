@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/views/widgets/CategoriesListView%20.dart';
 import 'package:newsapp/views/widgets/NewsTile.dart';
+import 'package:newsapp/views/widgets/new_past.dart';
 
 class HomeViewBady extends StatelessWidget {
   const HomeViewBady({super.key});
@@ -18,12 +19,7 @@ class HomeViewBady extends StatelessWidget {
         SliverToBoxAdapter(
           child: SizedBox(height: 32),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: NewsTile(),
-          ),
-        ),
+        NewsTile()
       ],
     );
   }
