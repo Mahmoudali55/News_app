@@ -1,11 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:newsapp/models/articel_model.dart';
 
 class NewPast extends StatelessWidget {
   const NewPast({
     super.key,
+    required this.articleModel,
   });
+  final ArticleModel articleModel;
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +16,19 @@ class NewPast extends StatelessWidget {
       children: [
         ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Image.asset(
-              'assets/img.png',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            )),
+            child: articleModel.image != null
+                ? Image.network(
+                    articleModel.image!,
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                  )
+                : Image.asset('assets/img4.jpeg')),
         SizedBox(
           height: 12,
         ),
         Text(
-          'mohud',
+          articleModel.title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -32,12 +37,16 @@ class NewPast extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        Text(
-          'mohud ali',
-          maxLines: 2,
-          style: TextStyle(
-              color: Colors.grey, fontSize: 18, fontWeight: FontWeight.normal),
-        ),
+        articleModel.subTitle != null
+            ? Text(
+                articleModel.subTitle!,
+                maxLines: 2,
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal),
+              )
+            : Text('sub titel'),
       ],
     );
   }
