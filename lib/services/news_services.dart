@@ -16,14 +16,10 @@ class NewsService {
 
       List<ArticleModel> areicelsList = [];
       for (var article in areicels) {
-        ArticleModel articleModel = ArticleModel(
-          image: article['urlToImage'],
-          title: article['title'],
-          subTitle: article['description'],
-        );
+        ArticleModel articleModel = ArticleModel.formJson(article);
+
         areicelsList.add(articleModel);
       }
-      print(areicelsList);
       return areicelsList;
     } catch (e) {
       return [];

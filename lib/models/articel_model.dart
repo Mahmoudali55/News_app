@@ -5,4 +5,10 @@ class ArticleModel {
 
   ArticleModel(
       {required this.image, required this.title, required this.subTitle});
+  factory ArticleModel.formJson(json) {
+    return ArticleModel(
+        image: json['urlToImage'],
+        title: json['title'],
+        subTitle: json['description']);
+  }
 }
