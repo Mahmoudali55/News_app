@@ -23,7 +23,9 @@ class HomeViewBady extends StatelessWidget {
         SliverToBoxAdapter(
           child: SizedBox(height: 32),
         ),
-        NewTileBuilder()
+        NewTileBuilder(
+          category: 'general',
+        ),
       ],
     );
   }
